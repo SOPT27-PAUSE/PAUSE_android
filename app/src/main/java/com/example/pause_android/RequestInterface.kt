@@ -18,4 +18,9 @@ interface RequestInterface {
     fun postLogin(
         @Body body : RequestLoginData
     ) : Call<ResponseLoginData>
+    @GET("/usage")
+    fun returnTime(
+        @Header("jwt") jwt : String
+    ) : Call<ResponseRecData>
+
 }
