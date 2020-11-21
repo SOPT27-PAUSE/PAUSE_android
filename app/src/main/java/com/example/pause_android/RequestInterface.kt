@@ -12,7 +12,9 @@ interface RequestInterface {
         @Query("playtime") playtime : Int,
         @Query("category") category : String
     ) : Call<ResponseListData>
-    @POST("/users/signin")
+
+    @Headers("Content-Type: application/json")
+    @POST("/auth/signin")
     fun postLogin(
         @Body body : RequestLoginData
     ) : Call<ResponseLoginData>

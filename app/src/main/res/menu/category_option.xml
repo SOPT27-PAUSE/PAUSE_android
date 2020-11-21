@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/eat"
+        android:title="먹방"/>
+
+    <item
+        android:id="@+id/funny"
+        android:title="예능"/>
+
+    <item
+        android:id="@+id/music"
+        android:title="음악"/>
+
+    <item
+        android:id="@+id/drama"
+        android:title="드라마"/>
+
+    <item
+        android:id="@+id/asmr"
+        android:title="ASMR"/>
+
+    <item
+        android:id="@+id/fashion"
+        android:title="패션"/>
+
+    <item
+        android:id="@+id/game"
+        android:title="게임"/>
+</menu>
