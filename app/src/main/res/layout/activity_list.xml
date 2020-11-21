@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ListActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/img_list_logo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/pause_logo_list" />
+
+        <TextView
+            android:id="@+id/activity_list_tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="27dp"
+            android:fontFamily="@font/noto_bold"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.5"
+            android:text="30분"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/img_list_logo"
+            app:layout_constraintTop_toBottomOf="@+id/img_list_logo" />
+
+        <View
+            android:id="@+id/activity_list_view1"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ADADAD"
+            app:layout_constraintEnd_toEndOf="@+id/activity_list_tv_time"
+            app:layout_constraintStart_toStartOf="@+id/activity_list_tv_time"
+            app:layout_constraintTop_toBottomOf="@+id/activity_list_tv_time" />
+
+        <TextView
+            android:id="@+id/activity_list_tv_category"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/noto_bold"
+            android:includeFontPadding="false"
+            android:letterSpacing="-0.5"
+            android:text="액션"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="@+id/img_list_logo"
+            app:layout_constraintTop_toBottomOf="@id/activity_list_view1" />
+
+        <View
+            android:id="@+id/activity_list_view2"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#ADADAD"
+            app:layout_constraintEnd_toEndOf="@+id/activity_list_tv_category"
+            app:layout_constraintStart_toStartOf="@+id/activity_list_tv_category"
+            app:layout_constraintTop_toBottomOf="@+id/activity_list_tv_category" />
+
+        <TextView
+            android:id="@+id/activity_list_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_light"
+            android:includeFontPadding="false"
+            android:text=" 동안 볼"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_list_tv_time"
+            app:layout_constraintStart_toEndOf="@+id/activity_list_tv_time"
+            app:layout_constraintTop_toTopOf="@+id/activity_list_tv_time" />
+
+        <TextView
+            android:id="@+id/activity_list_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_light"
+            android:includeFontPadding="false"
+            android:text=" 리스트를 골라주세요"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_list_tv_category"
+            app:layout_constraintStart_toEndOf="@+id/activity_list_tv_category"
+            app:layout_constraintTop_toTopOf="@+id/activity_list_tv_category" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="10dp"
+            android:indeterminateTint="#DFDFDF"
+            android:max="180"
+            android:progress="90"
+            android:progressTint="#00D6C9"
+            android:scaleY="1.5f"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/activity_list_tv2" />
+
+        <ImageView
+            android:id="@+id/activity_list_img_point"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="@+id/progressBar"
+            app:layout_constraintStart_toStartOf="@+id/progressBar"
+            app:srcCompat="@drawable/progress_point" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_list_rv_video"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:listitem="@layout/item_video_list" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="오늘은 그만 볼래요"
+        android:background="#00D6C9"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:paddingTop="11dp"
+        android:paddingBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
