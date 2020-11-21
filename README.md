@@ -24,3 +24,32 @@
 * **권예진 - 로그인뷰, 메인뷰, 종료뷰**
   * 로그인 버튼 클릭 시 메인뷰로 이동
   * 하단 버튼 클릭 시 시청기록뷰로 이동
+
+## 🖥 Interface
+```kotlin
+interface RequestInterface {
+
+    // 플레이리스트 조회
+    @Headers("Content-Type: application/json")
+    @GET("/playlist")
+    fun requestPlaylist(
+        @Query("playtime") playtime : Int,
+        @Query("category") category : String
+    ) : Call<ResponseListData>
+
+    // 로그인
+    @Headers("Content-Type: application/json")
+    @POST("/auth/signin")
+    fun postLogin(
+        @Body body : RequestLoginData
+    ) : Call<ResponseLoginData>
+
+    // 이용시간 조회
+    @Headers("Content-Type: application/json")
+    @GET("/usage")
+    fun returnTime(
+        @Header("jwt") jwt : String
+    ) : Call<ResponseRecData>
+
+}
+```
