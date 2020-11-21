@@ -5,12 +5,38 @@ import android.os.Bundle
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import kotlinx.android.synthetic.main.activity_record.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RecordActivity : AppCompatActivity() {
+    val requestToServer = RequestToServer
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_record)
 
+        requestToServer.service.returnTime(
+            RequestRecData(
+                date = 22,
+                setTime = 100,
+                useTime = 90
+            )
+        ).enqueue(object : Callback<ResponseRecData>{
+            override fun onResponse(
+                call: Call<ResponseRecData>,
+                response: Response<ResponseRecData>
+            ) {
+                if (response.isSuccessful) {
+                    day7.text = response.body()!!.data[0].date.toString()
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseRecData>, t: Throwable) {
+
+            }
+
+        })
 //        val NoOfEmp = ArrayList<Int>()
 //
 //        NoOfEmp.run {

@@ -1,6 +1,7 @@
 package com.example.pause_android
 
 import retrofit2.Call
+import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
@@ -14,5 +15,10 @@ interface RequestInterface {
         @Query("playtime") playtime : Int,
         @Query("category") category : String
     ) : Call<ResponseListData>
+
+    @GET("/usage")
+    fun returnTime(
+        @Body body : RequestRecData
+    ) : Call<ResponseRecData>
 
 }
