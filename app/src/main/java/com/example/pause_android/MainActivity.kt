@@ -38,18 +38,19 @@ class MainActivity : AppCompatActivity() {
 
         override fun onMenuItemClick(item: MenuItem?): Boolean {
             when(item?.itemId) {
+                R.id.half_hr -> select_time.text ="30분"
                 R.id.one_hr -> select_time.text ="1시간"
                 R.id.one_half_hr -> select_time.text ="1시간 30분"
                 R.id.two_hr -> select_time.text ="2시간"
                 R.id.two_half_hr -> select_time.text ="2시간 30분"
                 R.id.three_hr -> select_time.text ="3시간"
-                R.id.eat -> select_time.text ="먹방"
-                R.id.funny -> select_time.text ="예능"
-                R.id.music -> select_time.text ="음악"
-                R.id.drama -> select_time.text ="드라마"
-                R.id.asmr -> select_time.text ="ASMR"
-                R.id.fashion -> select_time.text ="패션"
-                R.id.game -> select_time.text ="게임"
+                R.id.eat -> category.text ="먹방"
+                R.id.funny -> category.text ="예능"
+                R.id.music -> category.text ="음악"
+                R.id.drama -> category.text ="드라마"
+                R.id.asmr -> category.text ="ASMR"
+                R.id.fashion -> category.text ="패션"
+                R.id.game -> category.text ="게임"
             }
 
             return false
