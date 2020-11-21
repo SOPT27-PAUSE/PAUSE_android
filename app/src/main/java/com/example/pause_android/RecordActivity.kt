@@ -2,6 +2,7 @@ package com.example.pause_android
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import kotlinx.android.synthetic.main.activity_record.*
@@ -17,23 +18,21 @@ class RecordActivity : AppCompatActivity() {
         setContentView(R.layout.activity_record)
 
         requestToServer.service.returnTime(
-            RequestRecData(
-                date = 22,
-                setTime = 100,
-                useTime = 90
-            )
+            jwt = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwibmFtZSI6IuyYge2YhCIsImlhdCI6MTYwNTk5MTA4MSwiZXhwIjoxNjA3MjAwNjgxLCJpc3MiOiJ5c3MifQ.GeAtWJU65T8lpVPhr74vDAQuYVJxjrmR5HIGoyWIEH4"
         ).enqueue(object : Callback<ResponseRecData>{
             override fun onResponse(
                 call: Call<ResponseRecData>,
                 response: Response<ResponseRecData>
             ) {
                 if (response.isSuccessful) {
+                    Log.d("테스트", response.body().toString())
                     day7.text = response.body()!!.data[0].date.toString()
+
                 }
             }
 
             override fun onFailure(call: Call<ResponseRecData>, t: Throwable) {
-
+                Log.d("실패",t.toString())
             }
 
         })

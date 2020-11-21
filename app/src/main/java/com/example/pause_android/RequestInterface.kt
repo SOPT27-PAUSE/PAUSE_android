@@ -1,10 +1,7 @@
 package com.example.pause_android
 
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.Query
+import retrofit2.http.*
 
 interface RequestInterface {
 
@@ -18,7 +15,7 @@ interface RequestInterface {
 
     @GET("/usage")
     fun returnTime(
-        @Body body : RequestRecData
+        @Header("jwt") jwt : String
     ) : Call<ResponseRecData>
 
 }
