@@ -12,12 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PAUSE_android">
         <activity android:name=".SplashActivity">
+        </activity>
+        <activity android:name=".RecordActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RecordActivity" />
         <activity android:name=".MainActivity">
         </activity>
     </application>
