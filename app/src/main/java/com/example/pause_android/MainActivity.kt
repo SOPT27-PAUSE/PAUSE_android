@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         category.setOnClickListener{
             val category_popup= PopupMenu(this,category)
 
-            menuInflater.inflate(R.menu.time_option,category_popup.menu)
+            menuInflater.inflate(R.menu.category_option,category_popup.menu)
             category_popup.setOnMenuItemClickListener(PopupListener())
             category_popup.show()
         }
