@@ -9,7 +9,7 @@ interface RequestInterface {
 
     // 플레이리스트 조회
     @Headers("Content-Type: application/json")
-    @GET("/playlist?playtime={playtime(int)} & category={category(string)}")
+    @GET("/playlist")
     fun requestPlaylist(
         @Query("playtime") playtime : Int,
         @Query("category") category : String

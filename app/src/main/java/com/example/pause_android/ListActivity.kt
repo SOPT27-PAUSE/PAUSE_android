@@ -30,15 +30,15 @@ class ListActivity : AppCompatActivity() {
                     response: Response<ResponseListData>
                 ) {
                     if(response.isSuccessful) {
-                        listAdapter = ListAdapter(this@ListActivity)
+                        Log.d("테스트", response.body()!!.data.toString())
+                        listAdapter = ListAdapter(applicationContext, response.body()!!.data)
                         activity_list_rv_video.adapter = listAdapter
-                        listAdapter.datas = response.body()!!.data
                         listAdapter.notifyDataSetChanged()
 
                         listAdapter.setItemClickListener(
                             object : ListAdapter.ItemClickListener{
                                 override fun onClick(view: View, position: Int) {
-                                    val intent = Intent(this@ListActivity, WebViewActivity::class.java)
+                                    val intent = Intent(applicationContext, WebViewActivity::class.java)
                                     intent.putExtra("url", response.body()!!.data[position].url)
                                     startActivity(intent)
                                 }

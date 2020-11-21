@@ -6,9 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 
-class ListAdapter(private val context: Context) : RecyclerView.Adapter<ListViewHolder>() {
-
-    var datas = mutableListOf<VideoData>()
+class ListAdapter(private val context: Context, var datas : List<VideoData>) : RecyclerView.Adapter<ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.item_video_list, parent, false)
