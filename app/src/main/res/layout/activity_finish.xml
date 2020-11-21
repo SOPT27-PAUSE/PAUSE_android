@@ -123,4 +123,46 @@
         app:layout_constraintEnd_toStartOf="@+id/Button_record"
         app:layout_constraintBottom_toBottomOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/rec"
+        tools:layout_editor_absoluteX="191dp"
+        tools:layout_editor_absoluteY="52dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:rotationX="30"
+        android:rotationY="30"
+        app:srcCompat="@drawable/rec"
+        tools:layout_editor_absoluteX="277dp"
+        tools:layout_editor_absoluteY="144dp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/rec3"
+        tools:layout_editor_absoluteX="308dp"
+        tools:layout_editor_absoluteY="290dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/rec4"
+        tools:layout_editor_absoluteX="242dp"
+        tools:layout_editor_absoluteY="468dp" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/rec5"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="682dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
