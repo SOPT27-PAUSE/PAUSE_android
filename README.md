@@ -1,5 +1,5 @@
 # ⏸ PAUSE_android ⏸
-<img src="https://imgur.com/spjezf0.png" width="40%">
+<img src="https://imgur.com/spjezf0.png" width="20%">
 
 > ### 알고리즘의 늪에서 나를 구할, 영상 시청 시간 관리 앱. 
 > ### 일상을 위한 멈춤, Pause.
