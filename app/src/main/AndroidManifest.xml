@@ -16,6 +16,9 @@
         <activity android:name=".WebViewActivity"></activity>
         <activity android:name=".ListActivity" />
         <activity android:name=".SplashActivity">
+
+        </activity>
+        <activity android:name=".RecordActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,7 +26,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".FinishActivity" />
-        <activity android:name=".RecordActivity" />
         <activity android:name=".MainActivity">
         </activity>
         <activity android:name=".LoginActivity"/>
