@@ -106,7 +106,7 @@
         android:id="@+id/line_avgtime"
         android:layout_width="0dp"
         android:layout_height="3dp"
-        android:layout_marginTop="29dp"
+        android:layout_marginTop="50dp"
         android:background="@drawable/dot_line"
         app:layout_constraintTop_toBottomOf="@+id/line_maxtime"
         app:layout_constraintEnd_toEndOf="@+id/line_maxtime"
@@ -116,7 +116,7 @@
         android:id="@+id/line_mintime"
         android:layout_width="0dp"
         android:layout_height="1dp"
-        android:layout_marginTop="62dp"
+        android:layout_marginTop="90dp"
         android:background="#4D000000"
         app:layout_constraintTop_toBottomOf="@+id/line_maxtime"
         app:layout_constraintEnd_toEndOf="@+id/line_maxtime"
@@ -138,7 +138,8 @@
         android:id="@+id/graph_time"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/line_timegraph"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/day4"
         app:layout_constraintEnd_toEndOf="@+id/line_maxtime"
         app:layout_constraintStart_toStartOf="@+id/line_maxtime"
         app:layout_constraintTop_toBottomOf="@+id/line_maxtime" />
@@ -269,7 +270,7 @@
         android:textColor="#6D000000"
         android:fontFamily="@font/noto_light"
         android:includeFontPadding="false"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="19dp"
         app:layout_constraintStart_toEndOf="@+id/day2"
         app:layout_constraintTop_toTopOf="@+id/day1" />
 
@@ -281,7 +282,7 @@
         android:textColor="#6D000000"
         android:fontFamily="@font/noto_light"
         android:includeFontPadding="false"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="19dp"
         app:layout_constraintStart_toEndOf="@+id/day3"
         app:layout_constraintTop_toTopOf="@+id/day1" />
 
@@ -293,7 +294,7 @@
         android:textColor="#6D000000"
         android:fontFamily="@font/noto_light"
         android:includeFontPadding="false"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="19dp"
         app:layout_constraintStart_toEndOf="@+id/day4"
         app:layout_constraintTop_toTopOf="@+id/day1" />
 
@@ -305,7 +306,7 @@
         android:textColor="#6D000000"
         android:fontFamily="@font/noto_light"
         android:includeFontPadding="false"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="19dp"
         app:layout_constraintStart_toEndOf="@+id/day5"
         app:layout_constraintTop_toTopOf="@+id/day1" />
 
@@ -317,7 +318,7 @@
         android:textColor="#000000"
         android:fontFamily="@font/noto_regular"
         android:includeFontPadding="false"
-        android:layout_marginLeft="18dp"
+        android:layout_marginLeft="19dp"
         app:layout_constraintStart_toEndOf="@+id/day6"
         app:layout_constraintTop_toTopOf="@+id/day1" />
 
