@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="11dp"
-        android:fontFamily="@font/noto_light"
+        android:fontFamily="@font/noto_regular"
         android:includeFontPadding="false"
         android:text="신나는 액션 영화의 원리"
         android:textColor="#000000"
@@ -49,4 +49,18 @@
         app:layout_constraintBottom_toBottomOf="@+id/tv_video_title"
         app:layout_constraintEnd_toEndOf="@+id/img_thumbnail"
         app:layout_constraintTop_toTopOf="@+id/tv_video_title" />
+
+    <TextView
+        android:id="@+id/tv_video_time"
+        android:layout_width="43dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="6dp"
+        android:background="@drawable/area_videotime"
+        android:gravity="center"
+        android:text="00:00"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_thumbnail"
+        app:layout_constraintEnd_toEndOf="@+id/img_thumbnail" />
 </androidx.constraintlayout.widget.ConstraintLayout>

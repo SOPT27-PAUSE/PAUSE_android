@@ -1,0 +1,11 @@
+<resources>
+    <string-array name="spinner_entries">
+        <item >ASMR</item>
+        <item >예능</item>
+        <item >음악</item>
+        <item >드라마</item>
+        <item >먹방</item>
+        <item >패션</item>
+        <item >게임</item>
+    </string-array>
+</resources>

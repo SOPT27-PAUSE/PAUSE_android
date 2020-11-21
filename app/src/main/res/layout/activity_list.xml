@@ -46,14 +46,24 @@
             app:layout_constraintStart_toStartOf="@+id/activity_list_tv_time"
             app:layout_constraintTop_toBottomOf="@+id/activity_list_tv_time" />
 
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="50dp"
+            android:layout_height="15dp"
+            android:background="@null"
+            android:entries="@array/spinner_entries"
+            app:layout_constraintBottom_toBottomOf="@+id/activity_list_tv_category"
+            app:layout_constraintEnd_toEndOf="@+id/activity_list_tv_category" />
+
         <TextView
             android:id="@+id/activity_list_tv_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="3dp"
+            android:background="#ffffff"
             android:fontFamily="@font/noto_bold"
             android:includeFontPadding="false"
-            android:text="액션"
+            android:text="ASMR"
             android:textColor="@color/black"
             android:textSize="24sp"
             app:layout_constraintStart_toStartOf="@+id/img_list_logo"
@@ -121,6 +131,8 @@
             app:layout_constraintStart_toStartOf="@+id/progressBar"
             app:srcCompat="@drawable/progress_point" />
 
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -136,7 +148,7 @@
         tools:listitem="@layout/item_video_list" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/btn_stop"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="오늘은 그만 볼래요"
@@ -149,5 +161,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_go_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="14dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_stop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/btn_go_record" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
