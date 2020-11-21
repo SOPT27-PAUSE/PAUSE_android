@@ -4,7 +4,7 @@ data class ResponseListData(
     val status : Int,
     val success : Boolean,
     val message : String,
-    val data : MutableList<VideoData>
+    val data : List<VideoData>
 )
 
 data class VideoData(

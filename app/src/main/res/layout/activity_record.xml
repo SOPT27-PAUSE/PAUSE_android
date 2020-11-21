@@ -7,4 +7,309 @@
     tools:context=".RecordActivity">
 
 
+    <ImageView
+        android:id="@+id/pause_logo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintWidth_percent="0.25"
+        app:layout_constraintDimensionRatio="94:26"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="51dp"
+        app:srcCompat="@drawable/pause_logo" />
+
+    <TextView
+        android:id="@+id/textview_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이번 주"
+        android:textSize="26sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="127dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textview_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="릴리님은"
+        android:textSize="26sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="@+id/textview_week"
+        app:layout_constraintTop_toBottomOf="@+id/textview_week" />
+
+    <TextView
+        android:id="@+id/textview_today"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="하루 평균  "
+        android:textSize="26sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="@+id/textview_week"
+        app:layout_constraintTop_toBottomOf="@+id/textview_name"/>
+
+    <TextView
+        android:id="@+id/textview_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="시간"
+        android:textSize="26sp"
+        android:textColor="#00D6C9"
+        android:fontFamily="@font/noto_bold"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toEndOf="@+id/textview_today"
+        app:layout_constraintTop_toBottomOf="@+id/textview_name"/>
+
+    <View
+        android:id="@+id/line_time"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#ADADAD"
+        app:layout_constraintEnd_toEndOf="@+id/textview_time"
+        app:layout_constraintStart_toStartOf="@+id/textview_time"
+        app:layout_constraintTop_toBottomOf="@+id/textview_time"/>
+
+    <TextView
+        android:id="@+id/textview_watch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="영상을 시청하셨네요"
+        android:textSize="26sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="@+id/textview_week"
+        app:layout_constraintTop_toBottomOf="@+id/textview_today"/>
+
+    <View
+        android:id="@+id/line_maxtime"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="120dp"
+        android:background="#4D000000"
+        app:layout_constraintBottom_toTopOf="@+id/line_timegraph"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/line_avgtime"
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="29dp"
+        android:background="@drawable/dot_line"
+        app:layout_constraintTop_toBottomOf="@+id/line_maxtime"
+        app:layout_constraintEnd_toEndOf="@+id/line_maxtime"
+        app:layout_constraintStart_toStartOf="@+id/line_maxtime" />
+
+    <View
+        android:id="@+id/line_mintime"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="62dp"
+        android:background="#4D000000"
+        app:layout_constraintTop_toBottomOf="@+id/line_maxtime"
+        app:layout_constraintEnd_toEndOf="@+id/line_maxtime"
+        app:layout_constraintStart_toStartOf="@+id/line_maxtime"  />
+
+    <View
+        android:id="@+id/line_timegraph"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginLeft="48dp"
+        android:layout_marginRight="48dp"
+        android:layout_marginBottom="81dp"
+        android:background="#BFF5F2"
+        app:layout_constraintBottom_toTopOf="@+id/textview_good"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/graph_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/line_timegraph"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textview_watch"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textview_good"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="대단해요"
+        android:textSize="21sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:layout_marginTop="241dp"
+        app:layout_constraintStart_toStartOf="@+id/textview_week"
+        app:layout_constraintTop_toBottomOf="@+id/textview_watch"/>
+
+    <TextView
+        android:id="@+id/textview_btmweek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이번 주는 "
+        android:textSize="21sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="@+id/textview_week"
+        app:layout_constraintTop_toBottomOf="@+id/textview_good"/>
+
+    <TextView
+        android:id="@+id/textview_minute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_bold"
+        android:includeFontPadding="false"
+        android:text="분"
+        android:textColor="#000000"
+        android:textSize="26sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textview_btmweek"
+        app:layout_constraintStart_toEndOf="@+id/textview_btmweek"
+        app:layout_constraintTop_toBottomOf="@+id/textview_good" />
+
+    <View
+        android:id="@+id/line_minute"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="#ADADAD"
+        app:layout_constraintEnd_toEndOf="@+id/textview_minute"
+        app:layout_constraintStart_toStartOf="@+id/textview_minute"
+        app:layout_constraintTop_toBottomOf="@+id/textview_minute"/>
+
+
+    <TextView
+        android:id="@+id/textview_save"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" 아꼈어요 !"
+        android:textSize="21sp"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toEndOf="@+id/textview_minute"
+        app:layout_constraintTop_toBottomOf="@+id/textview_good"/>
+
+    <TextView
+        android:id="@+id/textview_maxtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3시간"
+        android:textSize="10sp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_maxtime"
+        app:layout_constraintTop_toTopOf="@+id/line_maxtime"
+        app:layout_constraintStart_toEndOf="@+id/line_maxtime" />
+
+    <TextView
+        android:id="@+id/textview_mintime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1시간"
+        android:textSize="10sp"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/line_mintime"
+        app:layout_constraintTop_toTopOf="@+id/line_mintime"
+        app:layout_constraintStart_toEndOf="@+id/line_mintime" />
+
+    <TextView
+        android:id="@+id/day1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="16"
+        android:layout_marginLeft="71dp"
+        android:layout_marginBottom="59dp"
+        android:textColor="#6D000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textview_good" />
+
+    <TextView
+        android:id="@+id/day2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="17"
+        android:layout_marginLeft="18dp"
+        android:textColor="#6D000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        app:layout_constraintStart_toEndOf="@+id/day1"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <TextView
+        android:id="@+id/day3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="18"
+        android:textColor="#6D000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="18dp"
+        app:layout_constraintStart_toEndOf="@+id/day2"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <TextView
+        android:id="@+id/day4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="19"
+        android:textColor="#6D000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="18dp"
+        app:layout_constraintStart_toEndOf="@+id/day3"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <TextView
+        android:id="@+id/day5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20"
+        android:textColor="#6D000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="18dp"
+        app:layout_constraintStart_toEndOf="@+id/day4"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <TextView
+        android:id="@+id/day6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="21"
+        android:textColor="#6D000000"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="18dp"
+        app:layout_constraintStart_toEndOf="@+id/day5"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <TextView
+        android:id="@+id/day7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="22"
+        android:textColor="#000000"
+        android:fontFamily="@font/noto_regular"
+        android:includeFontPadding="false"
+        android:layout_marginLeft="18dp"
+        app:layout_constraintStart_toEndOf="@+id/day6"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

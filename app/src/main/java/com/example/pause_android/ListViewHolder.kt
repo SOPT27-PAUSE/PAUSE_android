@@ -1,5 +1,6 @@
 package com.example.pause_android
 
+import android.annotation.SuppressLint
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -11,9 +12,10 @@ class ListViewHolder(itemView : View) : RecyclerView.ViewHolder(itemView) {
     val title = itemView.findViewById<TextView>(R.id.tv_video_title)
     val count = itemView.findViewById<TextView>(R.id.tv_video_count)
 
+    @SuppressLint("SetTextI18n")
     fun bind(videoData: VideoData) {
-        Glide.with(itemView).load(videoData.url).into(image)
+        Glide.with(itemView).load(videoData.image).into(image)
         title.text = videoData.title
-        count.text = videoData.count.toString()
+        count.text = videoData.count.toString() + "개"
     }
 }
