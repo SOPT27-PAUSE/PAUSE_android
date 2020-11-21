@@ -3,6 +3,7 @@ package com.example.pause_android
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import kotlinx.android.synthetic.main.activity_record.*
@@ -12,6 +13,8 @@ import retrofit2.Response
 
 class RecordActivity : AppCompatActivity() {
     val requestToServer = RequestToServer
+    private var totalSaveTime : Int = 0
+    private var totalWatchTime : Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,18 +28,35 @@ class RecordActivity : AppCompatActivity() {
                 response: Response<ResponseRecData>
             ) {
                 if (response.isSuccessful) {
-                    Log.d("테스트", response.body().toString())
-                    day7.text = response.body()!!.data[0].date.toString()
+                    for(i in 0..6) {
+                        val resId = resources.getIdentifier(
+                            "@id/day${7-i}",
+                            "id",
+                            applicationContext!!.packageName
+                        )
+                        val tv = this@RecordActivity.findViewById(resId) as TextView?
+                        tv?.text = response.body()!!.data[i].date.toString()
+                    }
 
+                    for (i in 0..6) {
+                        totalSaveTime = response.body()!!.data[i].setTime-response.body()!!.data[i].useTime
+                    }
+                    textview_minute.text = " " + totalSaveTime.toString() + "분"
+
+                    for (i in 0..6) {
+                        totalWatchTime += response.body()!!.data[i].setTime
+                    }
+                    val avgWatchTime : Int = totalWatchTime/7
+                    textview_time.text = avgWatchTime.toString() + "분"
+                    textview_avgtime.text = avgWatchTime.toString() + "분"
                 }
             }
 
             override fun onFailure(call: Call<ResponseRecData>, t: Throwable) {
-                Log.d("실패",t.toString())
             }
 
         })
-//        val NoOfEmp = ArrayList<Int>()
+//        val NoOfEmp : ArrayList<Int>()
 //
 //        NoOfEmp.run {
 //            add(0,10)
