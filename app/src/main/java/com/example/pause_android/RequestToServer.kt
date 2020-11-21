@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RequestToServer {
     var retrofit = Retrofit.Builder()
-        .baseUrl("http://13.209.121.249:3000")
+        .baseUrl("http://sopkathon-pause.tk")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 

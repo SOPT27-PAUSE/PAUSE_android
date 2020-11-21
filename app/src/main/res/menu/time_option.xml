@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/one_hr"
+        android:title="1시간"/>
+
+    <item
+        android:id="@+id/one_half_hr"
+        android:title="1시간 30분"/>
+
+    <item
+        android:id="@+id/two_hr"
+        android:title="2시간"/>
+
+    <item
+        android:id="@+id/two_half_hr"
+        android:title="2시간 30분"/>
+
+    <item
+        android:id="@+id/three_hr"
+        android:title="3시간"/>
+</menu>

@@ -13,6 +13,11 @@ interface RequestInterface {
         @Query("category") category : String
     ) : Call<ResponseListData>
 
+    @Headers("Content-Type: application/json")
+    @POST("/auth/signin")
+    fun postLogin(
+        @Body body : RequestLoginData
+    ) : Call<ResponseLoginData>
     @GET("/usage")
     fun returnTime(
         @Header("jwt") jwt : String
