@@ -22,6 +22,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="85dp"
+        android:fontFamily="@font/noto_regular"
+        android:includeFontPadding="false"
         android:text="오늘의\n릴리님이"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -33,6 +35,8 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="6dp"
+        android:fontFamily="@font/noto_regular"
+        android:includeFontPadding="false"
         android:text="약속한"
         android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,6 +49,8 @@
         android:text="3시간"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_marginTop="6dp"
+        android:fontFamily="@font/noto_bold"
+        android:includeFontPadding="false"
         android:layout_marginLeft="6dp"
         app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toBottomOf="@+id/user_name"
@@ -56,6 +62,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="모두 끝났어요"
+        android:fontFamily="@font/noto_regular"
+        android:includeFontPadding="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:layout_marginTop="6dp"
         android:layout_marginLeft="50dp"
@@ -71,7 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/category"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="52dp"
-        android:layout_marginLeft="125dp"
+        android:layout_marginLeft="216dp"
         android:src="@drawable/ellipse"/>
 
     <TextView
@@ -83,6 +91,8 @@
         android:clickable="true"
         android:text="종료하고 일상으로 돌아가기"
         android:textSize="16sp"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/category" />
 
@@ -106,7 +116,9 @@
         android:layout_marginRight="46dp"
         android:layout_marginBottom="90dp"
         android:clickable="true"
-        android:text="나의 시간 관리 기록 보러가기->"
+        android:fontFamily="@font/noto_light"
+        android:includeFontPadding="false"
+        android:text="나의 시간 관리 기록 보러가기 →"
         android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/Button_record"
         app:layout_constraintBottom_toBottomOf="parent" />
