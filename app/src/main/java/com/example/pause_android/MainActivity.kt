@@ -1,5 +1,6 @@
 package com.example.pause_android
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -30,7 +31,13 @@ class MainActivity : AppCompatActivity() {
         }
 
         Button_record.setOnClickListener{
+            val intent = Intent(this, RecordActivity::class.java)
+            startActivity(intent)
+        }
 
+        tv_go_pause.setOnClickListener {
+            val dlg = DialogWarning(this)
+            dlg.start()
         }
     }
 

@@ -83,7 +83,7 @@
         android:src="@drawable/ellipse"/>
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tv_go_pause"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
@@ -101,7 +101,7 @@
         android:src="@drawable/rectangle"
         android:layout_marginTop="47dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_go_pause" />
 
     <ImageButton
         android:id="@+id/Button_record"

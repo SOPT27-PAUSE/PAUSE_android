@@ -1,5 +1,6 @@
 package com.example.pause_android
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -19,6 +20,7 @@ class ListActivity : AppCompatActivity() {
 
     val requestToServer = RequestToServer
 
+    private var temp = 0
     lateinit var listAdapter: ListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +31,11 @@ class ListActivity : AppCompatActivity() {
 
         btn_go_record.setOnClickListener {
             val intent = Intent(this, RecordActivity::class.java)
+            startActivity(intent)
+        }
+
+        btn_stop.setOnClickListener {
+            val intent = Intent(this, FinishActivity::class.java)
             startActivity(intent)
         }
 
@@ -134,9 +141,18 @@ class ListActivity : AppCompatActivity() {
                         listAdapter.setItemClickListener(
                             object : ListAdapter.ItemClickListener{
                                 override fun onClick(view: View, position: Int) {
-                                    val intent = Intent(applicationContext, WebViewActivity::class.java)
-                                    intent.putExtra("url", response.body()!!.data[position].url)
-                                    startActivity(intent)
+                                    if(temp == 0) {
+                                        val intent = Intent(applicationContext, WebViewActivity::class.java)
+                                        intent.putExtra("url", response.body()!!.data[position].url)
+                                        intent.putExtra("temp", 0)
+                                        startActivityForResult(intent, 100)
+                                    } else {
+                                        val intent = Intent(applicationContext, WebViewActivity::class.java)
+                                        intent.putExtra("url", response.body()!!.data[position].url)
+                                        intent.putExtra("temp", 1)
+                                        startActivityForResult(intent, 100)
+                                    }
+
                                 }
 
                             }
@@ -150,5 +166,18 @@ class ListActivity : AppCompatActivity() {
 
             }
         )
+    }
+
+    @SuppressLint("SetTextI18n")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 100 && resultCode == RESULT_OK) {
+            val time = data!!.getStringExtra("time")
+            activity_list_tv_time.text = time + "분"
+            progressBar.progress = 150
+            activity_list_img_point.visibility = GONE
+            activity_list_img_point2.visibility = VISIBLE
+            temp = 1
+        }
     }
 }

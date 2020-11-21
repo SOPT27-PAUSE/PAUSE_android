@@ -1,6 +1,7 @@
 package com.example.pause_android
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -36,10 +37,8 @@ class WebViewActivity : AppCompatActivity() {
 
     private fun startTimer() {
 
-        //resetTimer()
-
         var minute = 0
-        var second = 30
+        var second = 7
 
         timerTask = timer(period = 1000) {
 
@@ -52,8 +51,15 @@ class WebViewActivity : AppCompatActivity() {
             if(second == 0 && minute == 0) {
                 //타이머 종료
                 runOnUiThread {
-                    //tv_timer.text = "00:00"
-                    finish()
+                    if(intent.getIntExtra("temp", -1) == 0) {
+                        val intent = Intent(applicationContext, ListActivity::class.java)
+                        intent.putExtra("time", "25")
+                        setResult(RESULT_OK, intent)
+                        finish()
+                    } else if (intent.getIntExtra("temp", -1) == 1) {
+                        val intent = Intent(applicationContext, FinishActivity::class.java)
+                        startActivity(intent)
+                    }
                 }
                 cancel()
             }

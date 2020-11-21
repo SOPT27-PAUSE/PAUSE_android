@@ -115,7 +115,7 @@
             android:layout_marginBottom="10dp"
             android:indeterminateTint="#DFDFDF"
             android:max="180"
-            android:progress="90"
+            android:progress="180"
             android:progressTint="#00D6C9"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -126,11 +126,20 @@
             android:id="@+id/activity_list_img_point"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
             app:layout_constraintBottom_toTopOf="@+id/progressBar"
-            app:layout_constraintEnd_toEndOf="@+id/progressBar"
-            app:layout_constraintStart_toStartOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/progress_point" />
 
+        <ImageView
+            android:id="@+id/activity_list_img_point2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="65dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toTopOf="@+id/progressBar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="@drawable/progress_point" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -139,12 +148,15 @@
         android:id="@+id/activity_list_rv_video"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="20dp"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_video_list" />
 
     <TextView

@@ -21,13 +21,13 @@ class DialogWarning(context : Context) {
 
         dialog_login_yes = dlg.findViewById(R.id.tv_dialog_yes)
         dialog_login_yes.setOnClickListener {
+            val intent = Intent(it.context, ListActivity::class.java)
+            it.context.startActivity(intent)
             dlg.dismiss()
         }
 
         dialog_login_no = dlg.findViewById(R.id.tv_dialog_no)
         dialog_login_no.setOnClickListener {
-            val intent = Intent(it.context, ListActivity::class.java)
-            it.context.startActivity(intent)
             dlg.dismiss()
         }
 
