@@ -46,16 +46,15 @@
         android:id="@+id/select_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3시간"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:layout_marginLeft="6dp"
         android:layout_marginTop="6dp"
         android:fontFamily="@font/noto_bold"
         android:includeFontPadding="false"
-        android:layout_marginLeft="6dp"
-        app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/user_name"
+        android:text="30분"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="32sp"
-        />
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/user_name" />
 
     <TextView
         android:id="@+id/category"
@@ -101,13 +100,13 @@
         android:id="@+id/Button_record"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:background="@drawable/record_btn"
-        android:src="@drawable/btn_image"
-        android:layout_marginBottom="78dp"
         android:layout_marginRight="15dp"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        android:layout_marginBottom="78dp"
+        android:background="@drawable/record_btn"
+        android:src="@drawable/btn_go_record"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView3"

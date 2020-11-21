@@ -1,10 +1,16 @@
 package com.example.pause_android
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import android.view.animation.Animation
+import android.view.animation.TranslateAnimation
+import android.widget.AdapterView
 import kotlinx.android.synthetic.main.activity_list.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -14,15 +20,112 @@ class ListActivity : AppCompatActivity() {
 
     val requestToServer = RequestToServer
 
+    private var temp = 0
     lateinit var listAdapter: ListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
 
+        requestList("ASMR")
+
+        btn_go_record.setOnClickListener {
+            val intent = Intent(this, RecordActivity::class.java)
+            startActivity(intent)
+        }
+
+        btn_stop.setOnClickListener {
+            val intent = Intent(this, FinishActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        activity_list_rv_video.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            if(scrollY > oldScrollY) {
+                val animation = TranslateAnimation(0F, 0F, 0F, 500F)
+                animation.duration = 1000
+
+                animation.setAnimationListener(object : Animation.AnimationListener {
+                    override fun onAnimationStart(animation: Animation?) {
+                        btn_stop.visibility = GONE
+                    }
+
+                    override fun onAnimationEnd(animation: Animation?) {
+                        btn_stop.visibility = GONE
+                    }
+                    override fun onAnimationRepeat(animation: Animation?) { }
+                })
+                btn_stop.startAnimation(animation)
+            }
+
+            if(scrollY <oldScrollY) {
+                val topani = TranslateAnimation(0F, 0F, 500F, 0F)
+                topani.duration=1000
+
+                topani.setAnimationListener(object : Animation.AnimationListener {
+                    override fun onAnimationStart(animation: Animation?) {
+                        btn_stop.visibility = VISIBLE
+                    }
+                    override fun onAnimationEnd(animation: Animation?) {
+
+                    }
+
+                    override fun onAnimationRepeat(animation: Animation?) { }
+                })
+                btn_stop.startAnimation(topani)
+            }
+        }
+
+
+
+
+
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                when(spinner.getItemAtPosition(position)) {
+                    "먹방" -> {
+                        activity_list_tv_category.text = "먹방"
+                    }
+                    "예능" -> {
+                        activity_list_tv_category.text = "예능"
+                    }
+                    "음악" -> {
+                        activity_list_tv_category.text = "음악"
+                        requestList("음악")
+                    }
+                    "드라마" -> {
+                        activity_list_tv_category.text = "드라마"
+                    }
+                    "ASMR" -> {
+                        activity_list_tv_category.text = "ASMR"
+                        requestList("ASMR")
+                    }
+                    "패션" -> {
+                        activity_list_tv_category.text = "패션"
+                    }
+                    "게임" -> {
+                        activity_list_tv_category.text = "게임"
+                    }
+                }
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+        }
+
+    }
+
+    private fun requestList(category : String) {
         requestToServer.service.requestPlaylist(
             playtime = 30,
-            category = "예능"
+            category = category
         ).enqueue(
             object : Callback<ResponseListData> {
                 override fun onResponse(
@@ -38,9 +141,18 @@ class ListActivity : AppCompatActivity() {
                         listAdapter.setItemClickListener(
                             object : ListAdapter.ItemClickListener{
                                 override fun onClick(view: View, position: Int) {
-                                    val intent = Intent(applicationContext, WebViewActivity::class.java)
-                                    intent.putExtra("url", response.body()!!.data[position].url)
-                                    startActivity(intent)
+                                    if(temp == 0) {
+                                        val intent = Intent(applicationContext, WebViewActivity::class.java)
+                                        intent.putExtra("url", response.body()!!.data[position].url)
+                                        intent.putExtra("temp", 0)
+                                        startActivityForResult(intent, 100)
+                                    } else {
+                                        val intent = Intent(applicationContext, WebViewActivity::class.java)
+                                        intent.putExtra("url", response.body()!!.data[position].url)
+                                        intent.putExtra("temp", 1)
+                                        startActivityForResult(intent, 100)
+                                    }
+
                                 }
 
                             }
@@ -54,5 +166,18 @@ class ListActivity : AppCompatActivity() {
 
             }
         )
+    }
+
+    @SuppressLint("SetTextI18n")
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 100 && resultCode == RESULT_OK) {
+            val time = data!!.getStringExtra("time")
+            activity_list_tv_time.text = time + "분"
+            progressBar.progress = 150
+            activity_list_img_point.visibility = GONE
+            activity_list_img_point2.visibility = VISIBLE
+            temp = 1
+        }
     }
 }
